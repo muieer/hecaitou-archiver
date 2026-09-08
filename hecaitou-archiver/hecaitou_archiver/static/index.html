@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>文章阅览 · 和菜头</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="masthead">
+      <div class="brand"><span class="book-mark" aria-hidden="true">文</span><div><h1>文章阅览</h1><p>和菜头 · 槽边往事</p></div></div>
+      <div class="server-state"><span class="connection-dot" id="connection-dot"></span><span id="connection-label">正在连接本地服务</span></div>
+    </header>
+
+    <section class="schedule-panel" aria-label="每日调度设置">
+      <div class="schedule-heading"><div><h2>每日调度</h2><p id="timezone">按系统本地时间执行</p></div>
+        <label class="switch-label" for="enabled"><span id="schedule-label">调度关闭中</span><span class="switch"><input id="enabled" type="checkbox" role="switch" disabled aria-label="开启每日调度"><span class="switch-track"></span></span></label>
+      </div>
+      <div class="schedule-controls">
+        <form id="time-form" class="time-form"><label for="daily-time">每天执行时间</label><div class="time-row"><input id="daily-time" type="time" step="60" required disabled><button type="submit" id="save-time" class="button secondary" disabled>保存时间</button></div></form>
+        <div class="next-run"><span class="small-label">下次执行</span><strong id="next-run">—</strong><p id="schedule-note">开启后，每天执行一次</p></div>
+        <div class="manual-action"><button id="run-now" class="button primary" disabled><span aria-hidden="true">↻</span> <span id="run-label">立即执行一次</span></button><p>不改变每日时间与开关</p></div>
+      </div>
+      <div class="run-status" aria-live="polite"><span class="status-badge" id="run-badge">尚未执行</span><span id="run-message">首次运行后，这里会显示结果。</span><time id="run-time"></time></div>
+    </section>
+
+    <div id="notice" class="notice" role="status" hidden></div>
+    <div id="problem" class="problem" role="alert" hidden></div>
+    <main>
+      <div class="content-heading"><h2>最新存档</h2><span id="article-date">正在读取</span></div>
+      <section id="empty-state" class="empty-state"><div class="empty-icon" aria-hidden="true">文</div><h3 id="empty-title">正在读取文章</h3><p id="empty-text">稍候片刻，正文与分析将在这里显示。</p></section>
+      <div class="reading-grid" id="reading-grid" hidden>
+        <article class="article-panel">
+          <header class="article-header"><p class="eyebrow">正文</p><h2 id="article-title"></h2><a id="source-link" target="_blank" rel="noopener noreferrer">阅读原文 <span aria-hidden="true">↗</span></a></header>
+          <div id="body-error" class="problem" hidden></div>
+          <div id="article-body" class="prose"></div>
+        </article>
+        <aside class="analysis-panel" aria-labelledby="analysis-title">
+          <header class="analysis-header"><span class="eyebrow">文章理解</span><h2 id="analysis-title">七个角度</h2><p id="model-label"></p></header>
+          <p id="analysis-message" class="analysis-message"></p>
+          <dl id="analysis-list"></dl>
+        </aside>
+      </div>
+    </main>
+    <footer><span>仅在本地保存与阅读</span><span>每天检查最新文章 · 非当天发布则跳过</span></footer>
+  </div>
+</body>
+</html>

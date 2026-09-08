@@ -1,0 +1,29 @@
+# Downloaded articles and model analyses (local data)
+/文章存档/
+
+# Generated test reports, fixtures, logs and live-run archives
+/hecaitou-archiver/test-results/
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local configuration and secrets
+/hecaitou-archiver/secrets/ark_api_key.txt
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# macOS metadata
+.DS_Store
+
+/dashboard.log
