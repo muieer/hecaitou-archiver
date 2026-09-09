@@ -25,7 +25,7 @@ function renderArticle(article){
   // This HTML is rendered and allowlist-sanitized by the local backend.
   $("article-body").innerHTML=article.html||"";
   $("body-error").hidden=!article.body_error;$("body-error").textContent=article.body_error||"";
-  $("model-label").textContent=article.model?`本地模型 · ${article.model}`:"";
+  $("model-label").textContent=article.model?`云端模型 · ${article.model}`:"";
   $("analysis-message").hidden=article.analysis_state==="ready";
   $("analysis-message").textContent=article.analysis_message||"";
   $("analysis-list").replaceChildren();
