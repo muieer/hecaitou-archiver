@@ -1,6 +1,6 @@
 # 和菜头文章存档与分析
 
-检查和菜头网站最新发布的文章，在发布时间属于系统当天时保存正文，再调用本机 LM Studio 当前活跃模型，生成 where、when、what、why、how、which、who 七项 JSON 分析。
+检查和菜头网站最新发布的文章，在发布时间属于系统当天时保存正文，再调用火山方舟云端模型，生成 where、when、what、why、how、which、who 七项 JSON 分析。
 
 代码、安装方式、参数和 Agent 调用说明见 [工具使用说明](hecaitou-archiver/README.md)。
 
@@ -26,7 +26,7 @@ nohup /usr/bin/python3 hecaitou-archiver/dashboard.py --output-dir './文章存�
 /usr/bin/python3 hecaitou-archiver/archive.py --output-dir './文章存档'
 ```
 
-默认 LM Studio 服务地址为 `http://127.0.0.1:2051`，无需身份验证，需要恰好一个已加载的语言模型实例。
+模型请求固定发送到火山方舟 Chat Completions 接口，默认使用 `doubao-seed-2-1-turbo-260628`。运行前需将 API Key 单独保存到 `hecaitou-archiver/secrets/ark_api_key.txt`；该文件已被 Git 忽略。无需安装或运行 LM Studio。
 
 运行自动化测试（使用本机临时 HTTP 服务，不调用真实模型）：
 
